@@ -43,7 +43,7 @@ Prerequisites: Node.js 18+ and MongoDB (local, or a free MongoDB Atlas cluster).
 ```bash
 # 1. Backend
 cd backend
-Copy-Item .env.example .env # PowerShell; set MONGODB_URI and a long random JWT_SECRET
+New-Item .env -ItemType File # PowerShell; add the required variables listed below
 npm install
 npm run seed                # optional: demo data (demo@expenseflow.dev / Demo@1234)
 npm run dev                 # http://localhost:5001
@@ -54,6 +54,7 @@ npm install
 npm run dev                 # http://localhost:5173  (Vite proxies /api to :5001)
 ```
 Generate a secret: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`.
+Set `MONGODB_URI` and `JWT_SECRET` in `backend/.env` before starting the backend.
 
 `npm run seed:destroy` removes the demo user and all of its data. The seed script refuses to run when `NODE_ENV=production`.
 
@@ -61,7 +62,7 @@ Generate a secret: `node -e "console.log(require('crypto').randomBytes(48).toStr
 | Backend | Purpose |
 |---|---|
 | `MONGODB_URI`, `JWT_SECRET` | Required |
-| `PORT`, `NODE_ENV` | Defaults 5000 / development |
+| `PORT`, `NODE_ENV` | Defaults 5001 / development |
 | `CLIENT_URL` | Allowed CORS origin(s), comma separated; also used in reset links |
 | `UPLOAD_DIR`, `MAX_FILE_SIZE_MB` | File storage and receipt size limit |
 | `LARGE_TRANSACTION_THRESHOLD` | Amount that triggers a "large transaction" alert |
