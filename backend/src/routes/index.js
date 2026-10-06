@@ -1,0 +1,25 @@
+import { Router } from 'express';
+import auth from './authRoutes.js';
+import users from './userRoutes.js';
+import expenses from './expenseRoutes.js';
+import income from './incomeRoutes.js';
+import transactions from './transactionRoutes.js';
+import budgets from './budgetRoutes.js';
+import recurring from './recurringRoutes.js';
+import analytics from './analyticsRoutes.js';
+import notifications from './notificationRoutes.js';
+import files from './fileRoutes.js';
+
+const router = Router();
+router.get('/health', (_req, res) => res.json({ success: true, message: 'ExpenseFlow API is running' }));
+router.use('/auth', auth);
+router.use('/users', users);
+router.use('/expenses', expenses);
+router.use('/income', income);
+router.use('/transactions', transactions);
+router.use('/budgets', budgets);
+router.use('/recurring', recurring);
+router.use('/analytics', analytics);
+router.use('/notifications', notifications);
+router.use('/files', files);
+export default router;

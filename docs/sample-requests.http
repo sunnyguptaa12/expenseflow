@@ -1,0 +1,60 @@
+### Works with the VS Code "REST Client" extension. Run Login first and paste the token below.
+@host = http://localhost:5000/api
+@token = PASTE_TOKEN_HERE
+
+### Register
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{ "name": "Test User", "email": "test@example.com", "password": "Secret123" }
+
+### Login (seeded demo user)
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{ "email": "demo@expenseflow.dev", "password": "Demo@1234", "remember": true }
+
+### Add expense
+POST {{host}}/expenses
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "amount": 540, "category": "Food", "description": "Swiggy dinner", "date": "2026-10-05", "paymentMethod": "UPI", "tags": ["dinner"] }
+
+### List expenses: search + filter + sort + paginate
+GET {{host}}/expenses?search=swiggy&category=Food&minAmount=100&sort=highest&page=1&limit=10
+Authorization: Bearer {{token}}
+
+### Add income
+POST {{host}}/income
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "amount": 60000, "source": "Salary", "description": "October salary", "date": "2026-10-01", "paymentMethod": "Bank Transfer" }
+
+### Create budget
+POST {{host}}/budgets
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "month": "2026-10", "category": "Food", "amount": 5000 }
+
+### Budget progress
+GET {{host}}/budgets?month=2026-10
+Authorization: Bearer {{token}}
+
+### Recurring payment
+POST {{host}}/recurring
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "type": "expense", "amount": 649, "category": "Subscriptions", "description": "Netflix", "frequency": "Monthly", "paymentMethod": "Credit Card", "startDate": "2026-10-15" }
+
+### Dashboard summary
+GET {{host}}/analytics/summary?range=last3
+Authorization: Bearer {{token}}
+
+### CSV import preview (use curl for multipart: see README)
+### PDF report
+GET {{host}}/files/report-pdf?type=monthly&from=2026-09-01&to=2026-09-30
+Authorization: Bearer {{token}}

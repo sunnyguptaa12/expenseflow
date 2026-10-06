@@ -1,0 +1,15 @@
+date,description,category,amount,type,paymentMethod
+2026-09-01,Monthly salary,Salary,60000,income,Bank Transfer
+2026-09-02,Rent for September,Rent,18000,expense,Bank Transfer
+2026-09-03,Swiggy dinner,Food,540,expense,UPI
+2026-09-05,Uber to airport,Transport,780,expense,Credit Card
+2026-09-07,Netflix subscription,Subscriptions,649,expense,Credit Card
+2026-09-09,Amazon headphones,Shopping,2499,expense,Debit Card
+2026-09-12,Freelance logo project,Freelancing,12000,income,UPI
+2026-09-14,Electricity bill,Bills,2150,expense,UPI
+2026-09-18,Pharmacy,Healthcare,430,expense,Cash
+2026-09-21,Weekend movie,Entertainment,900,expense,Wallet
+2026-09-25,Online course,Education,3499,expense,Credit Card
+31/09/2026,Bad date example,Food,100,expense,Cash
+2026-09-27,Negative amount example,Food,-50,expense,Cash
+2026-09-28,Unknown category example,Gadgets,500,expense,Cash
