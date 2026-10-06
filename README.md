@@ -43,15 +43,15 @@ Prerequisites: Node.js 18+ and MongoDB (local, or a free MongoDB Atlas cluster).
 ```bash
 # 1. Backend
 cd backend
-cp .env.example .env        # set MONGODB_URI and a long random JWT_SECRET
+Copy-Item .env.example .env # PowerShell; set MONGODB_URI and a long random JWT_SECRET
 npm install
 npm run seed                # optional: demo data (demo@expenseflow.dev / Demo@1234)
-npm run dev                 # http://localhost:5000
+npm run dev                 # http://localhost:5001
 
 # 2. Frontend (new terminal)
 cd frontend
 npm install
-npm run dev                 # http://localhost:5173  (Vite proxies /api to :5000)
+npm run dev                 # http://localhost:5173  (Vite proxies /api to :5001)
 ```
 Generate a secret: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`.
 
